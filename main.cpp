@@ -4,6 +4,7 @@
 #include "manager.h"
 #include "Global.h"
 #include "output.h"
+#include "input.h"
 
 using namespace std;
 
@@ -22,9 +23,9 @@ int main() {
     cin >> dest_city;
 
     // show cruises 
-    vector<string> cruises_ids = findCruises(cruises, origin_city, dest_city);
+    vector<Cruise> cruises = cruises;
+    vector<Cruise> cruises = findCruises(cruises, origin_city, dest_city);
     // printCruises(cruises, cruises_ids);
-    
 
     // show the available cruise
     // take the passenger details for proceeding to the seat booking

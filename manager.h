@@ -4,7 +4,7 @@
 using namespace std;
 
 // returns the list of available cruise ids
-vector<string> findCruises(vector<Cruise> cruises, string origin, string dest) {
+vector<Cruise> findCruises(vector<Cruise> cruises, string origin, string dest) {
     vector<string> available_cruises;
     int n = cruises.size();
     for (int i = 0; i < n; i++) {

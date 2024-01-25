@@ -1,10 +1,9 @@
 #include <iostream>
 #include <bits/stdc++.h>
 #include "Ticket.h"
+#include "Global.h"
 
 using namespace std;
-
-enum SeatType {Economy, Business};
 
 class Passenger{
 private: 

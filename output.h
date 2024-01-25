@@ -3,7 +3,7 @@
 using namespace std;
 
 // prints all the cruises with ids
-void printCruises(vector<string> cruise_ids) {
+void printCruises(vector<Cruise> cruises, vector<string> cruise_ids) {
     for (string id : cruise_ids) {
         
     }
