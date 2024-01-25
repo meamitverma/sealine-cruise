@@ -1,6 +1,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
-#include "ticket.h"
+#include "Ticket.h"
 
 using namespace std;
 
