@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
-#include "Cruise.h"
+// #include "Cruise.h"
 using namespace std;
 
-vector<Cruise> cruises;
+// vector<Cruise> cruises;
 
 enum SeatType {Economy, Business, Seating};

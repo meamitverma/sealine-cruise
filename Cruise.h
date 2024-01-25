@@ -21,7 +21,7 @@ private:
 public:
 
     // constructor for id 
-    Cruise(int id){
+    Cruise(string id){
         this->id = id;
         departure_city = "NULL";
         departure_time = 0000;
@@ -31,7 +31,7 @@ public:
         this->capacity = capacity;
     }
 
-    Cruise(int id, int capacity){
+    Cruise(string id, int capacity){
         this->id = id;
         departure_city = "NULL";
         departure_time = 0000;
