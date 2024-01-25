@@ -90,7 +90,7 @@ std::vector<Cruise> readCruisesFromFile(const std::string& filename) {
         std :: getline(file, line);
         std::getline(file, cruise.departureCity);
         file >> cruise.arrivalTime;
-        std::getline(file, line); ""
+        std::getline(file, line);
         std :: getline(file, cruise.arrivalCity);
 
         
