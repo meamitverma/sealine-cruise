@@ -34,4 +34,5 @@ public:
     void setDepartureCity(string city) { this->departure_city = city; }
     void setArrivalCity(string city) { this->arrival_city = city; }
 
+
 };
