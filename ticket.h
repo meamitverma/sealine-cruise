@@ -28,38 +28,36 @@ class Ticket{
                 return PNR;
             }
             
-            void setName(){
-                this->name=name;
-            }
+            
             string getName(){
                 return name;
             }
 
             //departure city
-            void setDeptCity(){
-                this->departure_city=departure_city;
+            void setDeptCity(string deptCity){
+                this->departure_city=deptCity;
             }
 
             string getDeptCity(){
                 return departure_city;
             }
 
-            void setArrivalCity(){
-                this->arrival_city = arrival_city;
+            void setArrivalCity(string arrivalCity){
+                this->arrival_city = arrivalCity;
             }
             string getArrivalCity(){
                 return arrival_city;
             }
 
-            void setArrvialTime(){
-                this->arrival_time = arrival_time;
+            void setArrvialTime(string arrivalTime){
+                this->arrival_time = arrivalTime;
             }
 
             string getArrivalTime(){
                 return arrival_time;
             }
             
-            void setCabin(){
+            void setCabin(string cabin){
                 this->cabin=cabin;
             }
 
