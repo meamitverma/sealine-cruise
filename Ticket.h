@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>
+#include "Passenger.h"
 
 using namespace std;
 
@@ -82,11 +83,11 @@ class Ticket{
                 this->price=pp;
             }
             int getprice(){
-                if(cabin==Business){
+                if(cabin == SeatType::Business){
                     price = 5000;
-                } else if(cabin==Economy){
+                } else if(cabin== SeatType::Economy){
                     price = 3000;
-                } else if(cabin=Seating){
+                } else if(cabin=SeatType:: Seating){
                     price = 2000;
                 }
                 return price;
