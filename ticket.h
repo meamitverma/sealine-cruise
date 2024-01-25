@@ -11,6 +11,9 @@ class Ticket{
             string departure_time;  //cruise id addition is left.
             string arrival_time;
             string cabin; //may be economy class or business class or normal seating.
+            int price;
+            int seatNo;
+            //add price for each seat type
 
     public:
             Ticket(){
@@ -21,6 +24,8 @@ class Ticket{
                 departure_time = "N/A";
                 arrival_time = "N/A";
                 cabin = "N/A";
+                price = 00;
+                seatNo = 0;
             }
 
             //generate PNR number
@@ -64,5 +69,22 @@ class Ticket{
             string getCabin(){
                 return cabin;
             }
+
+            void setPrice(int pp){ //if someone updraged the booking then you can also set the price for each type of booking class
+                this->price=pp;
+            }
+            int getprice(){
+                return price;
+            }
+
+            void setSeatNo(int seatno){
+                this->seatNo = seatno;
+            }
+
+            int getSeatNo(){
+                return seatNo;
+            }
+
+            
 };
 
