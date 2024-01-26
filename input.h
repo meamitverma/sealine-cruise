@@ -1,11 +1,5 @@
 #include<bits/stdc++.h>
-// #include "Cruise.cpp"
-// #include "Global.cpp"
-
 using namespace std;
-
-
-
 
 // Function to read cruise details from a file
 void readCruisesFromFile(const string& filename) {
@@ -16,7 +10,6 @@ void readCruisesFromFile(const string& filename) {
         exit(1);
     }
 
-    // vector<Cruise> cruises;
     string line;
 
     while (getline(file, line)) {
@@ -47,17 +40,8 @@ void readCruisesFromFile(const string& filename) {
         cruise.setArrivalCity(arrival_city);
         cruise.calculateDuration();
         
-        cruises.push_back(cruise);
+        cruises[cruise_id] = cruise;
     }
 
     file.close();
 }
-
-// int main() {
-//     string filename = "cruise_data.txt"; 
-//     vector<Cruise> cruisess = readCruisesFromFile(filename);
-    
-//     cruises = cruisess;
-
-//     return 0;
-// }

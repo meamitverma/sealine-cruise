@@ -4,4 +4,4 @@ using namespace std;
 
 enum SeatType {Economy, Business, Seating};
 
-static vector<Cruise> cruises;
+map<string, Cruise> cruises;

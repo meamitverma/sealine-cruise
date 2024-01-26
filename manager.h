@@ -13,11 +13,10 @@ void preprocessing() {
 }
 
 // returns the list of available cruise ids
-void findCruises(vector<Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {
+void findCruises(map<string, Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {
     // vector<Cruise> available_cruises;
-    int n = cruises.size();
-    for (int i = 0; i < n; i++) {
-        Cruise cruise = cruises[i];
+    for (auto it : cruises) {
+        Cruise cruise = it.second;
         // get the cruise origin city and cruise destination
         string cruise_origin = cruise.getDepartureCity();
         string cruise_dest = cruise.getArrivalCity();
