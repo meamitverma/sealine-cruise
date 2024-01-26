@@ -1,7 +1,7 @@
 #include <iostream>
 #include <bits/stdc++.h>
 // #include "Ticket.h"
-#include "Global.h"
+#include "Global.cpp"
 
 using namespace std;
 

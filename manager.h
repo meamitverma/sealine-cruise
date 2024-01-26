@@ -1,11 +1,20 @@
+
 #include<bits/stdc++.h>
-#include "Cruise.h"
+// #include "Cruise.cpp"
+// #include "input.cpp"
+// #include "Global.h"
 
 using namespace std;
 
+void preprocessing() {
+    // take all cruises details from the file
+    string filename = "cruise_data.txt"; 
+    readCruisesFromFile(filename);
+}
+
 // returns the list of available cruise ids
-vector<Cruise> findCruises(vector<Cruise> cruises, string origin, string dest) {
-    vector<Cruise> available_cruises;
+void findCruises(vector<Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {
+    // vector<Cruise> available_cruises;
     int n = cruises.size();
     for (int i = 0; i < n; i++) {
         Cruise cruise = cruises[i];
@@ -20,5 +29,5 @@ vector<Cruise> findCruises(vector<Cruise> cruises, string origin, string dest) {
         }   
     }
 
-    return available_cruises;
+    // return available_cruises;
 }

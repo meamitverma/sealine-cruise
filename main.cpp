@@ -1,14 +1,18 @@
 #include<bits/stdc++.h>
-// #include "Cruise.h"
-// #include "Passenger.h"
-#include "manager.h"
+#include "Cruise.h"
 #include "Global.h"
+// #include "Passenger.h"
+#include "input.h"
+#include "manager.h"
 // #include "output.h"
-// #include "input.h"
 
 using namespace std;
 
+
+
 int main() {
+    preprocessing();
+
     // welcome to the sealink
     cout << "Welcome to SeaLink Travels" << endl;
 
@@ -24,19 +28,21 @@ int main() {
     cin >> dest_city;
 
     // show cruises 
-    Cruise c1("123");
-    c1.setDepartureCity("Kochi");
-    c1.setArrivalCity("Lk");
+    // Cruise c1("123");
+    // c1.setDepartureCity("Kochi");
+    // c1.setArrivalCity("Lk");
 
-    Cruise c2("12321");
-    c2.setDepartureCity("Chennai");
-    c2.setArrivalCity("ad");
+    // Cruise c2("12321");
+    // c2.setDepartureCity("Chennai");
+    // c2.setArrivalCity("ad");
 
-    vector<Cruise> cruises;
-    cruises.push_back(c1);
-    cruises.push_back(c2);
+    // vector<Cruise> cruises;
+    // cruises.push_back(c1);
+    // cruises.push_back(c2);
     
-    vector<Cruise> available_cruises = findCruises(cruises, origin_city, dest_city);
+    
+    vector<Cruise> available_cruises; 
+    findCruises(cruises, origin_city, dest_city, available_cruises);
     cout << "Available Cruises:" << endl;
     for (Cruise c : available_cruises) {
         cout << c.getID() << endl;
