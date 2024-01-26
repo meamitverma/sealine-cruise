@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 class Cruise{
 private:
     string id; // cruise id
@@ -19,6 +17,15 @@ private:
     int capacity = 200;
 
 public:
+    // default constructor
+    Cruise() {
+        id = "NULL";
+        departure_time = 0000;
+        departure_city = "NULL";
+        arrival_time = 0000;
+        arrival_city = "NULL";
+        duration = 0;
+    }
 
     // constructor for id 
     Cruise(string id){
@@ -27,8 +34,8 @@ public:
         departure_time = 0000;
         arrival_time = 0000;
         arrival_city = "NULL";
-        duration = 0;
-        this->capacity = capacity;
+        duration = 0;;
+
     }
 
     Cruise(string id, int capacity){
@@ -57,9 +64,13 @@ public:
     string  getID() { return id; }
 
     // calculate duration
-    int calculateDuration(int from, int to) {
-        return to - from;
+    int calculateDuration() {
+        return duration = arrival_time - departure_time;
     }
+    int calculateDuration(int from, int to) {
+        return duration = to - from;
+    }
+
 
     
 
