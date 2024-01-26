@@ -52,7 +52,7 @@ int main() {
     ticket.bookTicket(cruise_id, Economy, 2);
     ticket.displayTicket();
 
-    // showCruise(cruise_id);
+    showCruise(cruise_id); // todo
 
     
     

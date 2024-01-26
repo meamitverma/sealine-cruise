@@ -30,3 +30,12 @@ void findCruises(map<string, Cruise> cruises, string origin, string dest, vector
 
     // return available_cruises;
 }
+
+// todo
+void showCruise(string cruise_id) {
+    // print all the seats with their seat number
+    // cruise details
+    // business seats
+    // economy seats
+    // seating seats
+}
