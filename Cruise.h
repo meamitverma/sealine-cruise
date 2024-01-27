@@ -120,5 +120,30 @@ public:
         if (seating_seat[seatno]) return false; // already booked
         return seating_seat[seatno] = true;
     } 
+    //cancellation functions
+    bool cancelEconomySeat(int seatno) {
+        int size = economy_seat.size();
+        if (seatno >= size || seatno < 0) return false; // out of bound
+        if (!economy_seat[seatno]) return false; // seat not booked
+        economy_seat[seatno] = false;
+        return true;
+    }
 
+    bool cancelBusinessSeat(int seatno) {
+        int size = business_seat.size();
+        if (seatno >= size || seatno < 0) return false; // out of bound
+        if (!business_seat[seatno]) return false; // seat not booked
+        business_seat[seatno] = false;
+        return true;
+    }
+
+    bool cancelSeatingSeat(int seatno) {
+        int size = seating_seat.size();
+        if (seatno >= size || seatno < 0) return false; // out of bound
+        if (!seating_seat[seatno]) return false; // seat not booked
+        seating_seat[seatno] = false;
+        return true;
+    }
+    
 };
+
