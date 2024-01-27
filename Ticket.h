@@ -124,37 +124,37 @@ public:
 
     // book ticket 
     bool bookTicket(string cruiseID, SeatType type, int seatno) {
-        Cruise cruise = cruises[cruiseID];
+        Cruise *cruise = &cruises[cruiseID];
         int seatcount;
         string cur_cabin = getCabin(type);
         if (type == Economy) {
-            seatcount = cruise.getEconomySeatCount();
-            cruise.setEconomySeatCount(seatcount - 1);
-            bool status = cruise.bookEconomySeat(seatno);
+            seatcount = cruise->getEconomySeatCount();
+            cruise->setEconomySeatCount(seatcount - 1);
+            bool status = cruise->bookEconomySeat(seatno);
             if (!status) return false;
-            this->price = cruise.getEconomyPrice();
+            this->price = cruise->getEconomyPrice();
         }
         else if (type == Business) {
-            seatcount = cruise.getBusinessSeatCount();
-            cruise.setBusinessSeatCount(seatcount - 1);
-            bool status = cruise.bookBusinessSeat(seatno);
+            seatcount = cruise->getBusinessSeatCount();
+            cruise->setBusinessSeatCount(seatcount - 1);
+            bool status = cruise->bookBusinessSeat(seatno);
             if (!status) return false;
-            this->price = cruise.getBusinessPrice();
+            this->price = cruise->getBusinessPrice();
         }
         else if (type == Seating) {
-            seatcount = cruise.getSeatingSeatCount();
-            cruise.setSeatingSeatCount(seatcount - 1);
-            bool status = cruise.bookSeatingSeat(seatno);
+            seatcount = cruise->getSeatingSeatCount();
+            cruise->setSeatingSeatCount(seatcount - 1);
+            bool status = cruise->bookSeatingSeat(seatno);
             if (!status) return false;
-            this->price = cruise.getSeatingPrice();
+            this->price = cruise->getSeatingPrice();
         }
 
         // if successful
         PNR = generatePNR();
-        setDeptCity(cruise.getDepartureCity());
-        setArrivalCity(cruise.getArrivalCity());
-        setArrvialTime(cruise.getArrivalTime());
-        setDEptTime(cruise.getDepartureTime());
+        setDeptCity(cruise->getDepartureCity());
+        setArrivalCity(cruise->getArrivalCity());
+        setArrvialTime(cruise->getArrivalTime());
+        setDEptTime(cruise->getDepartureTime());
         setCabin(cur_cabin);
         setSeatNo(cur_cabin[0] + to_string(seatno));
         return true;
