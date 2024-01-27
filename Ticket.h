@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-using namespace std;
 
+using namespace std;
 class Ticket
 {
 private:
@@ -13,6 +13,7 @@ private:
     string cabin; // may be economy class or business class or normal seating.
     int price;
     string seatNo;
+
     // for economy 3000, for seatign 2000, for business 5000 per seat.
     // add price for each seat type
 
@@ -107,7 +108,6 @@ public:
     }
 
     int getPrice() { return this->price;}
-
     void displayTicket()
     {
         cout << "Passenger name: " << getName() << endl;
@@ -161,18 +161,18 @@ public:
     }
 
     // ticket cancellation
-    void cancelTicket() {
+    void cancelTicket(string cruiseID) {
         if (seatNo == "00") {
             cout << "Ticket is not booked yet." << endl;
             return;
         }
 
-        // Extract SeatType and seat number from seatNo
+        // Extracting SeatType and seat number from seatNo
         SeatType type;
         int seatNumber;
         extractSeatInfo(seatNo, type, seatNumber);
 
-        Cruise cruise = cruises[cruiseID]; // You need to know the cruiseID
+        Cruise cruise = cruises[cruiseID]; 
 
         if (type == Economy) {
             cruise.cancelEconomySeat(seatNumber);
@@ -201,15 +201,15 @@ public:
         cout << "Ticket canceled successfully." << endl;
     }
 
-    void extractSeatInfo(string seatNo, SeatType& type, int& seatNumber) {
+    void extractSeatInfo(string seatNo, SeatType type, int &seatNumber) {
         char cabinCode = seatNo[0];
-        if (cabinCode == 'E') {   //Economy code
+        if (cabinCode == 'E') {   
             type = Economy;
         }
-        else if (cabinCode == 'B') { //business code
+        else if (cabinCode == 'B') {
             type = Business;
         }
-        else if (cabinCode == 'A') {  //Seating code
+        else if (cabinCode == 'A') {
             type = Seating;
         }
 
