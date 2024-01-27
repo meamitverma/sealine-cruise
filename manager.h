@@ -15,6 +15,17 @@ void welcome() {
     cout << endl;
 }
 
+void showQueryInfo() {
+    cout << "------------------------------------------------" << endl;
+    cout << "Select one of the following queries to proceed:" << endl;
+    cout << "S -> To Book Ticket" << endl;
+    cout << "C -> To Cancel Ticket" << endl;
+    cout << "P -> For Ticket Status" << endl;
+    cout << "F -> For Cruise Details" << endl;
+    cout << "E -> Exit the program" << endl;
+    cout << "------------------------------------------------" << endl;
+}
+
 
 // returns the list of available cruise ids
 void findCruises(map<string, Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {

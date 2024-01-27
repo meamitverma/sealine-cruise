@@ -19,6 +19,10 @@ int main() {
     welcome();
     showQueryInfo();
 
+    cout << "Query: ";
+    char query; cin >> query;
+    processInput(query);
+
     // find the desired cruise for the user where to where
     string origin_city, dest_city;
     // origin
