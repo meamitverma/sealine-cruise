@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
-using namespace std;
 
+using namespace std;
 class Ticket
 {
 private:
@@ -15,6 +15,7 @@ private:
     string seatNo;
 
     Passenger passenger;
+
     // for economy 3000, for seatign 2000, for business 5000 per seat.
     // add price for each seat type
 
@@ -106,7 +107,6 @@ public:
     }
 
     int getPrice() { return this->price;}
-
     void displayTicket()
     {
         cout << "Passenger name: " << passenger.getName() << endl;
@@ -157,6 +157,62 @@ public:
         setCabin(cur_cabin);
         setSeatNo(cur_cabin[0] + to_string(seatno));
         return true;
+    }
+
+    // ticket cancellation
+    void cancelTicket(string cruiseID) {
+        if (seatNo == "00") {
+            cout << "Ticket is not booked yet." << endl;
+            return;
+        }
+
+        // Extracting SeatType and seat number from seatNo
+        SeatType type;
+        int seatNumber;
+        extractSeatInfo(seatNo, type, seatNumber);
+
+        Cruise cruise = cruises[cruiseID]; 
+
+        if (type == Economy) {
+            cruise.cancelEconomySeat(seatNumber);
+            cruise.setEconomySeatCount(cruise.getEconomySeatCount() + 1);
+        }
+        else if (type == Business) {
+            cruise.cancelBusinessSeat(seatNumber);
+            cruise.setBusinessSeatCount(cruise.getBusinessSeatCount() + 1);
+        }
+        else if (type == Seating) {
+            cruise.cancelSeatingSeat(seatNumber);
+            cruise.setSeatingSeatCount(cruise.getSeatingSeatCount() + 1);
+        }
+
+        // Reset ticket information
+        PNR = "00000";
+        name = "N/A";
+        departure_city = "N/A";
+        arrival_city = "N/A";
+        departure_time = 0000;
+        arrival_time = 0000;
+        cabin = "N/A";
+        price = 00;
+        seatNo = "00";
+
+        cout << "Ticket canceled successfully." << endl;
+    }
+
+    void extractSeatInfo(string seatNo, SeatType type, int &seatNumber) {
+        char cabinCode = seatNo[0];
+        if (cabinCode == 'E') {   
+            type = Economy;
+        }
+        else if (cabinCode == 'B') {
+            type = Business;
+        }
+        else if (cabinCode == 'A') {
+            type = Seating;
+        }
+
+        seatNumber = stoi(seatNo.substr(1));
     }
 
     string getCabin(SeatType type) {
