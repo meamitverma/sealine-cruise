@@ -1,8 +1,4 @@
-#include <iostream>
 #include <bits/stdc++.h>
-// #include "Ticket.h"
-#include "Global.cpp"
-
 using namespace std;
 
 class Passenger{
@@ -13,13 +9,22 @@ private:
     string arrival_city;
     SeatType seat_pref; // business or economy
 
+
 public:
+    // default constructor
+    Passenger() {
+        name = "passenger";
+        age = 0;
+        departure_city = "NULL";
+        arrival_city = "NULL";
+        seat_pref = Seating;
+    }
     Passenger(string name, int age){
         this->name = name;
         this->age = age;
         departure_city = "";
         arrival_city = "";
-        seat_pref = SeatType::Economy;
+        seat_pref = Seating;
     }
 
     // getters
@@ -32,6 +37,5 @@ public:
     //setters
     void setDepartureCity(string city) { this->departure_city = city; }
     void setArrivalCity(string city) { this->arrival_city = city; }
-
 
 };
