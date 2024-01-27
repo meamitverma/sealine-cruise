@@ -1,9 +1,4 @@
-
 #include<bits/stdc++.h>
-// #include "Cruise.h"
-// #include "input.cpp"
-// #include "Global.h"
-
 using namespace std;
 
 void preprocessing() {
@@ -11,6 +6,15 @@ void preprocessing() {
     string filename = "cruise_data.txt"; 
     readCruisesFromFile(filename);
 }
+
+void welcome() {
+    cout << endl;
+    cout << "-------------------------------------" << endl;
+    cout << "<==> Welcome to SeaLink Travels <==>" << endl;
+    cout << "-------------------------------------" << endl;
+    cout << endl;
+}
+
 
 // returns the list of available cruise ids
 void findCruises(map<string, Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {
