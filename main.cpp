@@ -5,7 +5,7 @@
 #include "input.h"
 #include "manager.h"
 // #include "output.h"
-#include "Query.h"
+// #include "Query.h"
 #include "Ticket.h"
 
 using namespace std;
@@ -15,7 +15,9 @@ int main() {
     preprocessing();
 
     // welcome to the sealink
+    cout << "---------------------------" << endl;
     cout << "Welcome to SeaLink Travels" << endl;
+    cout << "---------------------------" << endl;
 
 
     // find the desired cruise for the user where to where

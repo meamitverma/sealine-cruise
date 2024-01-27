@@ -188,7 +188,7 @@ public:
 
         // Reset ticket information
         PNR = "00000";
-        name = "N/A";
+        // name = "N/A";
         departure_city = "N/A";
         arrival_city = "N/A";
         departure_time = 0000;

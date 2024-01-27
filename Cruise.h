@@ -91,6 +91,10 @@ public:
     int getEconomyPrice() { return economyPrice; }
     int getBusinessPrice() { return businessPrice; }
     int getSeatingPrice() { return seatingPrice; }
+    vector<bool> getBusinessSeats() { return business_seat;}
+    vector<bool> getEconomySeats() { return economy_seat;}
+    vector<bool> getSeatingSeats() { return seating_seat;}
+    
 
     // calculate duration
     int calculateDuration() {
