@@ -19,13 +19,13 @@ private:
 
     // seats
     // business
-    int business_count = 10, businessPrice = 50000;
+    int business_count = 30, businessPrice = 50000;
     vector<bool> business_seat;
     // economy
     int economy_count = 50, economyPrice = 35000;
     vector<bool> economy_seat;
     // seating
-    int seating_count = 140, seatingPrice = 20000;
+    int seating_count = 120, seatingPrice = 20000;
     vector<bool> seating_seat;
 
 public:
