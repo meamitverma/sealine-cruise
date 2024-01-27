@@ -5,7 +5,7 @@ class Ticket
 {
 private:
     string PNR;
-    // string name;
+    string name;
     string departure_city;
     string arrival_city;
     int departure_time; // cruise id addition is left.
@@ -16,14 +16,14 @@ private:
 
     Passenger passenger;
 
-    // for economy 3000, for seatign 2000, for business 5000 per seat.
+    // for economy 3000, for seating 2000, for business 5000 per seat.
     // add price for each seat type
 
 public:
     Ticket()
     {
         PNR = "00000";
-        // name = "N/A";
+        //name = "N/A";
         departure_city = "N/A";
         arrival_city = "N/A";
         departure_time = 0000;
@@ -107,6 +107,7 @@ public:
     }
 
     int getPrice() { return this->price;}
+
     void displayTicket()
     {
         cout << "Passenger name: " << passenger.getName() << endl;
