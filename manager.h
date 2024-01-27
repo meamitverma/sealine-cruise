@@ -49,4 +49,12 @@ void showCruise(string cruise_id) {
     cout<<"Availabe economy class seats: "<<cruise.getEconomySeatCount()<<endl;
     // seating seats
     cout<<"Available general class seats: "<<cruise.getSeatingSeatCount()<<endl;
+
+    int b=cruise.getBusinessSeatCount();
+    int e=cruise.getEconomySeatCount();
+    int s=cruise.getSeatingSeatCount();
+    vector<bool> ec=cruise.getEconomySeats();
+    vector<bool> bc=cruise.getBusinessSeats();
+    vector<bool> sc=cruise.getSeatingSeats();
+    drawCruiseBlueprint(e,b,s,ec,bc,sc);
 }

@@ -3,6 +3,7 @@
 #include "Global.h"
 #include "Passenger.h"
 #include "input.h"
+#include "gui.h"
 #include "manager.h"
 // #include "output.h"
 // #include "Query.h"
@@ -53,7 +54,7 @@ int main() {
     Ticket ticket;
     bool ticker_status = ticket.bookTicket(cruise_id, Economy, 2);
 
-    // showCruise(cruise_id); // todo
+    showCruise(cruise_id); // todo
 
     // take the passenger details for proceeding to the seat booking
     string passenger_name; int passenger_age;
