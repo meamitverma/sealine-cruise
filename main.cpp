@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 #include "Cruise.h"
 #include "Global.h"
-// #include "Passenger.h"
+#include "Passenger.h"
 #include "input.h"
 #include "manager.h"
 // #include "output.h"
@@ -49,15 +49,25 @@ int main() {
     // cin >> date;
 
     Ticket ticket;
-    ticket.bookTicket(cruise_id, Economy, 2);
-    ticket.displayTicket();
+    bool ticker_status = ticket.bookTicket(cruise_id, Economy, 2);
 
-    showCruise(cruise_id); // todo
-    ticket.cancelTicket(cruise_id);
-    
-    
+    // showCruise(cruise_id); // todo
 
     // take the passenger details for proceeding to the seat booking
+    string passenger_name; int passenger_age;
+    cout << "Enter passenger Name: " << endl;
+    cin >> passenger_name;
+    cout << "Enter passenger's Age: " << endl;
+    cin >> passenger_age;
+
+    Passenger passenger(passenger_name, passenger_age);
+    if (ticker_status == true) {
+        ticket.setPassenger(passenger);
+    }
+
+    // P -> passenger/ticket status -> display the ticket
+    ticket.displayTicket();
+
 
     return 0;
 }
