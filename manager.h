@@ -1,10 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// precomputing
 void preprocessing() {
     // take all cruises details from the file
     string filename = "cruise_data.txt"; 
     readCruisesFromFile(filename);
+}
+
+// printer functions
+void printInsideBox(string msg) {
+    int n = msg.length();
+    // print the upper border
+    for (int i = 0; i < n + 4; i++) cout << "-";
+    cout << endl;
+
+    //print the message
+    cout << "| " << msg << " |" << endl;
+
+     // print the lower border
+    for (int i = 0; i < n + 4; i++) cout << "-";
+    cout << endl;
 }
 
 void welcome() {
@@ -26,7 +42,34 @@ void showQueryInfo() {
     cout << "------------------------------------------------" << endl;
 }
 
+void displayAvailableCruises(vector<Cruise> cruises) {
 
+  
+    
+    string heading = "CRUISE ID | DEPARTURE TIME | ARRIVAL TIME";
+    printInsideBox(heading);
+
+    for (Cruise cruise : cruises) {
+        string msg = cruise.getID() + " | " + to_string(cruise.getDepartureTime()) + " | " + to_string(cruise.getArrivalTime());
+        printInsideBox(msg);
+    }
+}
+
+// requesting data from user
+void askOriginCity(string &city) {
+    cout << "Enter your origin city: "; cin >> city;
+}
+void askDestinationCity(string &city) {
+    cout << "Enter the destination: "; cin >> city;
+}
+void askDateofTravel(string &date) {
+    cout << "Enter date of travel: "; cin >> date;
+}
+void askCruiseID(string &id) {
+    cout << "Enter your preferred CRUISE ID: "; cin >> id;
+}
+
+// computing functions
 // returns the list of available cruise ids
 void findCruises(map<string, Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {
     // vector<Cruise> available_cruises;
@@ -52,18 +95,18 @@ void showCruise(string cruise_id) {
     Cruise cruise = cruises[cruise_id];
 
     // cruise details
-    cout<<"Cruise id: "<<cruise.getID()<<endl;
-    cout<<"Departure City: "<<cruise.getDepartureCity()<<endl;
-    cout<<"Arrival City: "<<cruise.getArrivalCity()<<endl;
-    cout<<"Departure Time: "<<cruise.getDepartureTime()<<endl;
-    cout<<"Arrival Time: "<<cruise.getArrivalTime()<<endl;
-    // business seats
-    cout<<"Available Business class seats: "<<cruise.getBusinessSeatCount()<<endl;
+    // cout<<"Cruise id: "<<cruise.getID()<<endl;
+    // cout<<"Departure City: "<<cruise.getDepartureCity()<<endl;
+    // cout<<"Arrival City: "<<cruise.getArrivalCity()<<endl;
+    // cout<<"Departure Time: "<<cruise.getDepartureTime()<<endl;
+    // cout<<"Arrival Time: "<<cruise.getArrivalTime()<<endl;
+    // // business seats
+    // cout<<"Available Business class seats: "<<cruise.getBusinessSeatCount()<<endl;
 
-    // economy seats
-    cout<<"Availabe economy class seats: "<<cruise.getEconomySeatCount()<<endl;
-    // seating seats
-    cout<<"Available general class seats: "<<cruise.getSeatingSeatCount()<<endl;
+    // // economy seats
+    // cout<<"Availabe economy class seats: "<<cruise.getEconomySeatCount()<<endl;
+    // // seating seats
+    // cout<<"Available general class seats: "<<cruise.getSeatingSeatCount()<<endl;
 
     int b=cruise.getBusinessSeatCount();
     int e=cruise.getEconomySeatCount();
