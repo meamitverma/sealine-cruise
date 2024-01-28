@@ -113,15 +113,15 @@ public:
         cout << "********************************************" << endl;
         cout << "*          Passenger Ticket Details         *" << endl;
         cout << "********************************************" << endl;
-        cout << "* Passenger name: " << setw(31) << left << passenger.getName() << " *" << endl;
-        cout << "* PNR number: " << setw(37) << left << getPNR() << " *" << endl;
-        cout << "* Seat number: " << setw(36) << left << getSeatNo() << " *" << endl;
-        cout << "* From: " << setw(41) << left << getDeptCity() << " *" << endl;
-        cout << "* To: " << setw(43) << left << getArrivalCity() << " *" << endl;
-        cout << "* Departure Time: " << setw(31) << left << getDeptTime() << " *" << endl;
-        cout << "* Arrival Time: " << setw(33) << left << getArrivalTime() << " *" << endl;
-        cout << "* Cabin type: " << setw(37) << left << getCabin() << " *" << endl;
-        cout << "* Total price: Rs." << setw(32) << left << getPrice() << " *" << endl;
+        cout << setw(31)<< left<<setfill(' ') <<"* Passenger name: " << setw(15) << left << passenger.getName() << " *" << endl;
+        cout << setw(31) << left << "* PNR number: " << setw(15) << left << getPNR() << " *" << endl;
+        cout << setw(31) << left << "* Seat number: " << setw(15) << left << getSeatNo() << " *" << endl;
+        cout << setw(31) << left << "* From: " << setw(15) << left << getDeptCity() << " *" << endl;
+        cout << setw(31) << left << "* To: " << setw(15) << left << getArrivalCity() << " *" << endl;
+        cout << setw(31) << left << "* Departure Time: " << setw(15) << left << getDeptTime() << " *" << endl;
+        cout << setw(31) << left << "* Arrival Time: " << setw(15) << left << getArrivalTime() << " *" << endl;
+        cout << setw(31) << left << "* Cabin type: " << setw(15) << left << getCabin() << " *" << endl;
+        cout << setw(31) << left << "* Total price (in Rs): " << setw(15) << left << getPrice() << " *" << endl;
         cout << "********************************************" << endl;
     }
 
