@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+map<string, Ticket> tickets; // {pnr -> ticket}
+
 /*S: scheduling
 C: cancel the passenger
 P: Passenger status
@@ -77,20 +79,34 @@ int processInput(char input)
                 Passenger passenger;
                 askPassengerDetails(passenger);
                 ticket.displayTicket();
+                tickets[ticket.getPNR()] = ticket;
             }
         }
     }
     else if (input == 'C')
     {
-        // cancelTicket();
+        // ask for pnr
+        printInsideBox("Ticket Cancellation");
+        string pnr;
+        askPNR(pnr);
+        Ticket *ticket = &tickets[pnr];
+        ticket->cancelTicket(ticket->getCruiseID());
+        cout << "Cancel the ticket" << ticket->getSeatNo() <<endl;
+
     }
     else if (input == 'P')
     {
         // passenegerStatus(); --to be made
+        cout <<  "passenger status" << endl;
     }
     else if (input == 'F')
     {
-        // cruiseStatus(); --to be made
+        // cruiseStatus();
+        string cruiseid;
+        askCruiseID(cruiseid);
+        // Cruise *cruise = &cruises[cruiseid];
+        // show the cruiseDetails
+        showCruise(cruiseid);
     }
     // exit the program
     else if (input == 'E')

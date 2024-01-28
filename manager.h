@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
+
 // precomputing
 void preprocessing() {
     // take all cruises details from the file
@@ -93,6 +95,10 @@ void askPassengerDetails(Passenger &p) {
 
     p.setPassengerName(name);
     p.setAge(age);
+}
+
+void askPNR(string &pnr) {
+    cout << "Enter your PNR to proceed:"; cin >> pnr;
 }
 
 // computing functions

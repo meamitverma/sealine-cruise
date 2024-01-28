@@ -1,20 +1,20 @@
 #include <bits/stdc++.h>
-#include <queue>
  
 using namespace std;
 class Ticket
 {
 private:
     string PNR;
-    string name;
-    string departure_city;
-    string arrival_city;
-    int departure_time; // cruise id addition is left.
-    int arrival_time;
+    // string name;
+    // string departure_city;
+    // string arrival_city;
+    // int departure_time; // cruise id addition is left.
+    // int arrival_time;
     string cabin; // may be economy class or business class or normal seating.
     int price;
     string seatNo;
- 
+    
+    Cruise cruise;
     Passenger passenger;
  
     // for economy 3000, for seating 2000, for business 5000 per seat.
@@ -25,10 +25,6 @@ public:
     {
         PNR = "00000";
         // name = "N/A";
-        departure_city = "N/A";
-        arrival_city = "N/A";
-        departure_time = 0000;
-        arrival_time = 0000;
         cabin = "N/A";
         price = 00;
         seatNo = "00";
@@ -41,46 +37,47 @@ public:
     }
  
     void setPassenger(Passenger p) { passenger = p; }
+    void setCruise(Cruise c) { cruise = c;}
  
     // departure city
-    void setDeptCity(string deptCity)
-    {
-        this->departure_city = deptCity;
-    }
+    // void setDeptCity(string deptCity)
+    // {
+    //     this->departure_city = deptCity;
+    // }
  
-    string getDeptCity()
-    {
-        return departure_city;
-    }
+    // string getDeptCity()
+    // {
+    //     return departure_city;
+    // }
  
-    void setArrivalCity(string arrivalCity)
-    {
-        this->arrival_city = arrivalCity;
-    }
-    string getArrivalCity()
-    {
-        return arrival_city;
-    }
+    // void setArrivalCity(string arrivalCity)
+    // {
+    //     this->arrival_city = arrivalCity;
+    // }
+    // string getArrivalCity()
+    // {
+    //     return arrival_city;
+    // }
  
-    void setDEptTime(int time)
-    {
-        this->departure_time = time;
-    }
+    // void setDEptTime(int time)
+    // {
+    //     this->departure_time = time;
+    // }
  
-    int getDeptTime()
-    {
-        return departure_time;
-    }
+    // int getDeptTime()
+    // {
+    //     return departure_time;
+    // }
  
-    void setArrvialTime(int arrivalTime)
-    {
-        this->arrival_time = arrivalTime;
-    }
+    // void setArrvialTime(int arrivalTime)
+    // {
+    //     this->arrival_time = arrivalTime;
+    // }
  
-    int getArrivalTime()
-    {
-        return arrival_time;
-    }
+    // int getArrivalTime()
+    // {
+    //     return arrival_time;
+    // }
  
     void setCabin(string cabin)
     {
@@ -117,10 +114,10 @@ public:
         cout << "* Passenger name: " << setw(31) << left << passenger.getName() << " *" << endl;
         cout << "* PNR number: " << setw(37) << left << getPNR() << " *" << endl;
         cout << "* Seat number: " << setw(36) << left << getSeatNo() << " *" << endl;
-        cout << "* From: " << setw(41) << left << getDeptCity() << " *" << endl;
-        cout << "* To: " << setw(43) << left << getArrivalCity() << " *" << endl;
-        cout << "* Departure Time: " << setw(31) << left << getDeptTime() << " *" << endl;
-        cout << "* Arrival Time: " << setw(33) << left << getArrivalTime() << " *" << endl;
+        cout << "* From: " << setw(41) << left << cruise.getDepartureCity() << " *" << endl;
+        cout << "* To: " << setw(43) << left << cruise.getArrivalCity() << " *" << endl;
+        cout << "* Departure Time: " << setw(31) << left << cruise.getDepartureTime() << " *" << endl;
+        cout << "* Arrival Time: " << setw(33) << left << cruise.getArrivalTime() << " *" << endl;
         cout << "* Cabin type: " << setw(37) << left << getCabin() << " *" << endl;
         cout << "* Total price: Rs." << setw(32) << left << getPrice() << " *" << endl;
         cout << "********************************************" << endl;
@@ -162,10 +159,7 @@ public:
  
         // if successful
         PNR = generatePNR();
-        setDeptCity(cruise->getDepartureCity());
-        setArrivalCity(cruise->getArrivalCity());
-        setArrvialTime(cruise->getArrivalTime());
-        setDEptTime(cruise->getDepartureTime());
+        setCruise(*cruise);
         setCabin(cur_cabin);
         setSeatNo(cur_cabin[0] + to_string(seatno));
         return true;
@@ -206,10 +200,6 @@ public:
         // Reset ticket information
         PNR = "00000";
         // name = "N/A";
-        departure_city = "N/A";
-        arrival_city = "N/A";
-        departure_time = 0000;
-        arrival_time = 0000;
         cabin = "N/A";
         price = 00;
         seatNo = "00";
@@ -249,6 +239,10 @@ public:
     string generatePNR()
     {
         return "SLNK" + to_string(rand() % 1000);
+    }
+
+    string getCruiseID() {
+        return cruise.getID();
     }
  
     // wailist creation
