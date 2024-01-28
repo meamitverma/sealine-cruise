@@ -82,15 +82,23 @@ int processInput(char input)
     }
     else if (input == 'C')
     {
-        // cancelTicket();
+        
+        cout<<"C executing"<<endl;
     }
     else if (input == 'P')
     {
-        // passenegerStatus(); --to be made
+        
     }
     else if (input == 'F')
     {
-        // cruiseStatus(); --to be made
+        // cruiseStatus(); 
+        string cruiseid;
+        askCruiseID(cruiseid);
+        Cruise *cruise = &cruises[cruiseid];
+        // show the cruiseDetails
+        showCruise(cruiseid);
+
+        cout<<"F executing.."<<endl;
     }
     // exit the program
     else if (input == 'E')

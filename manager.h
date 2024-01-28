@@ -68,7 +68,7 @@ void askCruiseID(string &id) {
 }
 void askSeatType(SeatType &type) {
     string input;
-    cout << "Enter your preferred seat type: "; cin >> input;
+    cout << "Enter your preferred seat type(B: Business Class, E: Economy, S:Seating): "; cin >> input;
     
     transform(input.begin(), input.end(), input.begin(), ::toupper);
     if (input == "E" || input == "ECONOMY" || input == "EC") {
