@@ -156,7 +156,7 @@ public:
         setArrvialTime(cruise->getArrivalTime());
         setDEptTime(cruise->getDepartureTime());
         setCabin(cur_cabin);
-        setSeatNo(cur_cabin[0] + to_string(seatno));
+        setSeatNo(to_string(seatno + 1) + cur_cabin[0]);
         return true;
     }
 

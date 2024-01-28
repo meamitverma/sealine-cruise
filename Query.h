@@ -66,12 +66,19 @@ int processInput(char input)
         else {
             // book the confirmed ticket
             bool ticket_status = ticket.bookTicket(cruise_id, type, seatno);
+
+            // on ticket booking unsuccessful
+            if (!ticket_status) {
+                // error handling
+            }
+            // on ticket booking successfull
+            else {
+                // ask for passenger details
+                Passenger passenger;
+                askPassengerDetails(passenger);
+                ticket.displayTicket();
+            }
         }
-
-        // book ticket with the passenger details
-        ticket.displayTicket();
-
-        showCruise(cruise_id);
     }
     else if (input == 'C')
     {
