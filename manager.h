@@ -86,6 +86,15 @@ void askSeatType(SeatType &type) {
     }
 }
 
+void askPassengerDetails(Passenger &p) {
+    string name; int age;
+    cout << "Enter passenger Name: "; cin >> name;
+    cout << "Enter passenger's Age: "; cin >> age;
+
+    p.setPassengerName(name);
+    p.setAge(age);
+}
+
 // computing functions
 // returns the list of available cruise ids
 void findCruises(map<string, Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {
