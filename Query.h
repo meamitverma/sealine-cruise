@@ -51,13 +51,27 @@ int processInput(char input)
         }
 
         // when cruise selected
+        Cruise *cruise = &cruises[cruise_id];
         // show the cruiseDetails
         showCruise(cruise_id);
 
-        // book ticket with the passenger details
+        SeatType type;
+        askSeatType(type);
+        int seatno = findAvailableSeat(*cruise,type);
+
         Ticket ticket;
-        bool ticket_status = ticket.bookTicket(cruise_id, Economy, 2);
-        tickt.displayTicket();
+        if (seatno < 0) {
+            // put in waitlist;
+        }
+        else {
+            // book the confirmed ticket
+            bool ticket_status = ticket.bookTicket(cruise_id, type, seatno);
+        }
+
+        // book ticket with the passenger details
+        ticket.displayTicket();
+
+        showCruise(cruise_id);
     }
     else if (input == 'C')
     {
