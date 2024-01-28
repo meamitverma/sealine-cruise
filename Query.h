@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
 /*S: scheduling
@@ -57,11 +58,11 @@ int processInput(char input)
         // book ticket with the passenger details
         Ticket ticket;
         bool ticket_status = ticket.bookTicket(cruise_id, Economy, 2);
-        tickt.displayTicket();
+        ticket.displayTicket();
     }
     else if (input == 'C')
     {
-        // cancelTicket();
+        //cancelTicket();
     }
     else if (input == 'P')
     {

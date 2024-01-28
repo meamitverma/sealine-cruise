@@ -225,4 +225,48 @@ public:
     string generatePNR() {
         return "SLNK" + to_string(rand() % 1000);
     }
+
+
+    //wailist creation
+    void BsWaitlist(){
+        Cruise cruise = cruises[cruiseID];
+        queue<Ticket> waitlist1;
+
+        if(Cruise.getBusinessSeatCount()=0){
+            
+            waitlist1.push(Ticket);  //ticket type variable
+            cout<<"Seats unavailable. Passenger added to Business class Waitlist."<<endl;
+            showq(waitlist1);
+        } else if(Cruise.getBusinessSeatCount()>0){
+            waitlist1.pop();
+            cout<<"Your booking is confirmed"<<endl;
+        }
+    }
+
+    void EcWaitlist(){
+        Cruise cruise = cruises[cruiseID];
+        queue<Ticket> waitlist2;
+        if(Cruise.getEconomySeatCount()=0){
+            
+            waitlist2.push(Ticket);
+            cout<<"Seats unavailable. Passenger added to Economy class Waitlist."<<endl;
+            showq(waitlist2);
+        } else is(Cruise.getEconomySeatCount()>0){
+            waitlist2.pop();
+            cout<<"Booking confirmed"<<endl;
+        }
+    }
+
+    void geWailist(){
+        Cruise cruise = cruises[cruiseID];
+        queue<Ticket> wailist3;
+        if(cruise.getSeatingSeatCount()=0){
+            wailist3.push(Ticket);
+            cout<<"Seats unavilable. Passenger added to General class wailist."<<endl;
+            showq(wailist3);
+        } else if(cruise.getSeatingSeatCount()>0){
+            wailist3.pop();
+            cout<<"Booking Confirmed."<<endl;
+        }
+    }
 };
