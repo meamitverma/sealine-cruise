@@ -43,8 +43,6 @@ void showQueryInfo() {
 }
 
 void displayAvailableCruises(vector<Cruise> cruises) {
-
-  
     
     string heading = "CRUISE ID | DEPARTURE TIME | ARRIVAL TIME";
     printInsideBox(heading);
@@ -68,6 +66,25 @@ void askDateofTravel(string &date) {
 void askCruiseID(string &id) {
     cout << "Enter your preferred CRUISE ID: "; cin >> id;
 }
+void askSeatType(SeatType &type) {
+    string input;
+    cout << "Enter your preferred seat type: "; cin >> input;
+    
+    transform(input.begin(), input.end(), input.begin(), ::toupper);
+    if (input == "E" || input == "ECONOMY" || input == "EC") {
+        type = Economy;
+    }
+    else if (input == "B" || input == "BUSINESS" || input == "BS") {
+        type = Business;
+    }
+    else if (input == "S" || input == "SEATING" || input == "ST") {
+        type = Seating;
+    }
+    else {
+        cout << "Please select the correct class type:" << endl;
+        askSeatType(type);
+    }
+}
 
 // computing functions
 // returns the list of available cruise ids
@@ -87,6 +104,20 @@ void findCruises(map<string, Cruise> cruises, string origin, string dest, vector
     }
 
     // return available_cruises;
+}
+
+int findAvailableSeat (Cruise &cruise, SeatType type) {
+    vector<bool> seats;
+    if (type == Economy) seats = cruise.getEconomySeats();
+    else if (type == Business) seats = cruise.getBusinessSeats();
+    else if (type == Seating) seats = cruise.getSeatingSeats();
+    
+    int total_seats = seats.size();
+    for (int i = 0; i < total_seats; i++) {
+        if (!seats[i]) return i;
+    }
+
+    return -1;
 }
 
 // todo
