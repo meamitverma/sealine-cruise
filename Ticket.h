@@ -13,7 +13,9 @@ private:
     string cabin; // may be economy class or business class or normal seating.
     int price;
     string seatNo;
-    
+    int seatno_int;
+    SeatType type;
+
     Cruise cruise;
     Passenger passenger;
  
@@ -28,6 +30,7 @@ public:
         cabin = "N/A";
         price = 00;
         seatNo = "00";
+        seatno_int = -1;
     }
  
     // generate PNR number
@@ -38,6 +41,9 @@ public:
  
     void setPassenger(Passenger p) { passenger = p; }
     void setCruise(Cruise c) { cruise = c;}
+    void setSeatnoInt(int seat) { seatno_int = seat;}
+
+    int getSeatnoInt() { return seatno_int;}
  
     // departure city
     // void setDeptCity(string deptCity)
@@ -105,21 +111,22 @@ public:
     }
  
     int getPrice() { return this->price; }
- 
+
+
     void displayTicket()
     {
         cout << "********************************************" << endl;
         cout << "*          Passenger Ticket Details         *" << endl;
         cout << "********************************************" << endl;
-        cout << "* Passenger name: " << setw(31) << left << passenger.getName() << " *" << endl;
-        cout << "* PNR number: " << setw(37) << left << getPNR() << " *" << endl;
-        cout << "* Seat number: " << setw(36) << left << getSeatNo() << " *" << endl;
-        cout << "* From: " << setw(41) << left << cruise.getDepartureCity() << " *" << endl;
-        cout << "* To: " << setw(43) << left << cruise.getArrivalCity() << " *" << endl;
-        cout << "* Departure Time: " << setw(31) << left << cruise.getDepartureTime() << " *" << endl;
-        cout << "* Arrival Time: " << setw(33) << left << cruise.getArrivalTime() << " *" << endl;
-        cout << "* Cabin type: " << setw(37) << left << getCabin() << " *" << endl;
-        cout << "* Total price: Rs." << setw(32) << left << getPrice() << " *" << endl;
+        cout << setw(31)<< left<<setfill(' ') <<"* Passenger name: " << setw(15) << left << passenger.getName() << " *" << endl;
+        cout << setw(31) << left << "* PNR number: " << setw(15) << left << getPNR() << " *" << endl;
+        cout << setw(31) << left << "* Seat number: " << setw(15) << left << getSeatNo() << " *" << endl;
+        cout << setw(31) << left << "* From: " << setw(15) << left << getDeptCity() << " *" << endl;
+        cout << setw(31) << left << "* To: " << setw(15) << left << getArrivalCity() << " *" << endl;
+        cout << setw(31) << left << "* Departure Time: " << setw(15) << left << getDeptTime() << " *" << endl;
+        cout << setw(31) << left << "* Arrival Time: " << setw(15) << left << getArrivalTime() << " *" << endl;
+        cout << setw(31) << left << "* Cabin type: " << setw(15) << left << getCabin() << " *" << endl;
+        cout << setw(31) << left << "* Total price (in Rs): " << setw(15) << left << getPrice() << " *" << endl;
         cout << "********************************************" << endl;
     }
  
@@ -129,6 +136,7 @@ public:
         Cruise *cruise = &cruises[cruiseID];
         int seatcount;
         string cur_cabin = getCabin(type);
+        this->type = type;
         if (type == Economy)
         {
             seatcount = cruise->getEconomySeatCount();
@@ -160,6 +168,7 @@ public:
         // if successful
         PNR = generatePNR();
         setCruise(*cruise);
+        setSeatnoInt(seatno);
         setCabin(cur_cabin);
         setSeatNo(cur_cabin[0] + to_string(seatno));
         return true;
@@ -174,27 +183,22 @@ public:
             return;
         }
  
-        // Extracting SeatType and seat number from seatNo
-        SeatType type;
-        int seatNumber;
-        extractSeatInfo(seatNo, type, seatNumber);
- 
-        Cruise cruise = cruises[cruiseID];
+        Cruise *cruise = &cruises[cruiseID];
  
         if (type == Economy)
         {
-            cruise.cancelEconomySeat(seatNumber);
-            cruise.setEconomySeatCount(cruise.getEconomySeatCount() + 1);
+            cruise->cancelEconomySeat(seatno_int);
+            cruise->setEconomySeatCount(cruise->getEconomySeatCount() + 1);
         }
         else if (type == Business)
         {
-            cruise.cancelBusinessSeat(seatNumber);
-            cruise.setBusinessSeatCount(cruise.getBusinessSeatCount() + 1);
+            cruise->cancelBusinessSeat(seatno_int);
+            cruise->setBusinessSeatCount(cruise->getBusinessSeatCount() + 1);
         }
         else if (type == Seating)
         {
-            cruise.cancelSeatingSeat(seatNumber);
-            cruise.setSeatingSeatCount(cruise.getSeatingSeatCount() + 1);
+            cruise->cancelSeatingSeat(seatno_int);
+            cruise->setSeatingSeatCount(cruise->getSeatingSeatCount() + 1);
         }
  
         // Reset ticket information
@@ -203,7 +207,8 @@ public:
         cabin = "N/A";
         price = 00;
         seatNo = "00";
- 
+        seatno_int = -1;
+        
         cout << "Ticket canceled successfully." << endl;
     }
  

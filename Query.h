@@ -90,14 +90,17 @@ int processInput(char input)
         string pnr;
         askPNR(pnr);
         Ticket *ticket = &tickets[pnr];
+        Cruise *cruise = &cruises[ticket->getCruiseID()];
         ticket->cancelTicket(ticket->getCruiseID());
-        cout << "Cancel the ticket" << ticket->getSeatNo() <<endl;
+        // cout << "Cancel the ticket" << ticket->getSeatNo() <<endl;
 
     }
     else if (input == 'P')
     {
-        // passenegerStatus(); --to be made
-        cout <<  "passenger status" << endl;
+        string pnr;
+        askPNR(pnr);
+        Ticket *ticket = &tickets[pnr];
+        ticket->displayTicket();
     }
     else if (input == 'F')
     {
