@@ -121,10 +121,10 @@ public:
         cout << setw(31)<< left<<setfill(' ') <<"* Passenger name: " << setw(15) << left << passenger.getName() << " *" << endl;
         cout << setw(31) << left << "* PNR number: " << setw(15) << left << getPNR() << " *" << endl;
         cout << setw(31) << left << "* Seat number: " << setw(15) << left << getSeatNo() << " *" << endl;
-        cout << setw(31) << left << "* From: " << setw(15) << left << getDeptCity() << " *" << endl;
-        cout << setw(31) << left << "* To: " << setw(15) << left << getArrivalCity() << " *" << endl;
-        cout << setw(31) << left << "* Departure Time: " << setw(15) << left << getDeptTime() << " *" << endl;
-        cout << setw(31) << left << "* Arrival Time: " << setw(15) << left << getArrivalTime() << " *" << endl;
+        cout << setw(31) << left << "* From: " << setw(15) << left << cruise.getDepartureCity() << " *" << endl;
+        cout << setw(31) << left << "* To: " << setw(15) << left << cruise.getArrivalCity() << " *" << endl;
+        cout << setw(31) << left << "* Departure Time: " << setw(15) << left << cruise.getDepartureTime() << " *" << endl;
+        cout << setw(31) << left << "* Arrival Time: " << setw(15) << left << cruise.getArrivalTime() << " *" << endl;
         cout << setw(31) << left << "* Cabin type: " << setw(15) << left << getCabin() << " *" << endl;
         cout << setw(31) << left << "* Total price (in Rs): " << setw(15) << left << getPrice() << " *" << endl;
         cout << "********************************************" << endl;
