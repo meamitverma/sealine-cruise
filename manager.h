@@ -95,6 +95,10 @@ void askPassengerDetails(Passenger &p) {
     p.setAge(age);
 }
 
+void askPNR(string &pnr) {
+    cout << "Enter your PNR to proceed:"; cin >> pnr;
+}
+
 // computing functions
 // returns the list of available cruise ids
 void findCruises(map<string, Cruise> cruises, string origin, string dest, vector<Cruise> &available_cruises) {
