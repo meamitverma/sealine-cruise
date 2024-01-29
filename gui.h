@@ -24,7 +24,7 @@ void drawCruiseBlueprint(int economySeats, int bussinessSeats, int seatingSeats,
     //     cout<<"|"<<endl;
     // }
     cout<<"|-------------------------------------|"<<endl;
-    cout<<"|           Bussiness Class           |"<<endl;
+    cout<<"|           Business Class            |"<<endl;
     cout<<"|-------------------------------------|"<<endl;
     //Draw bussiness class seats
     for(int i=0;i<bussinessSeats/3;i++){
